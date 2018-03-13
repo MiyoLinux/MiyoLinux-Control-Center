@@ -2,10 +2,9 @@
 
 ![alt text](http://miyolinux.weebly.com/uploads/1/3/7/0/13707080/editor/screenshot-from-2018-03-06-17-38-05.png?1520376381)
 
-Requires: 
-yad
-Creation of folders containing applications copied from /usr/share/applications (or elsewhere)
-Creation of text editor links in order to open configuration files
+Requires: yad
+
+You will also need to create folders containing applications copied from /usr/share/applications (or elsewhere), and you'll need to create text editor links in order to open configuration files.
 
 The MiyoLinux Control Center simply groups applications together (under tabs) allowing a user to change the look, settings, and configuration of their Openbox system from a central location.
 
