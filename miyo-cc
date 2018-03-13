@@ -1,0 +1,52 @@
+#!/bin/sh
+#
+# A simple "all-in-one" Control Center for MiyoLinux/Openbox.
+#
+#
+EDITOR=leafpad
+
+YAD="/usr/bin/yad"
+KEY="1234567"
+
+res1=$(mktemp --tmpdir iface1.XXXXXXXX)
+res2=$(mktemp --tmpdir iface2.XXXXXXXX)
+res3=$(mktemp --tmpdir iface3.XXXXXXXX)
+res4=$(mktemp --tmpdir iface4.XXXXXXXX)
+
+#APPEARANCE="Appearance"
+#SYSTEM="System
+#CONFIGURATION="Configuration Files"
+#ACCESSORIES="Miyo Accessories"
+AUTOSTART="Autostart"
+MENU="Menu Appearance"
+MENUCONF="Menu Configuration"
+CONKY="Conky"
+RC="Openbox RC"
+COMPTON="Compton"
+
+# Appearance
+$YAD --plug=$KEY --tabnum=1 --icons --read-dir="/usr/share/miyolinux/control-panel/appearance" --sort-by-name --item-width=100  > $res1 &
+
+# System
+$YAD --plug=$KEY --tabnum=2 --icons --read-dir="/usr/share/miyolinux/control-panel/system" --sort-by-name --item-width=100  > $res2 &
+
+# Configuration
+$YAD --plug=$KEY --tabnum=3 --borders=30 --columns=3 --form --text-align=center --text="Edit the configuration files for these items.
+" \
+--field="$AUTOSTART:FBTN" "$EDITOR $HOME/.config/openbox/autostart" \
+--field="$COMPTON:FBTN" "$EDITOR $HOME/.config/compton.conf" \
+--field="$MENU:FBTN" "$EDITOR $HOME/.config/obmenu-generator/schema.pl" \
+--field="$CONKY:FBTN" "$EDITOR $HOME/.conkyrc" \
+--field="$MENUCONF:FBTN" "$EDITOR $HOME/.config/obmenu-generator/config.pl" \
+--field="$RC:FBTN" "$EDITOR $HOME/.config/openbox/rc.xml"  >$res3 &
+
+# Miyo Accessories
+$YAD --plug=$KEY --tabnum=4 --icons --read-dir="/usr/share/miyolinux/control-panel/miyo" --sort-by-name --item-width=100  > $res4 &
+
+# Main Window
+$YAD --notebook --key=$KEY --tab="Appearance" --tab="System" --tab="Configuration Files" --tab="Miyo Accessories" \
+     --always-print-result --dialog-sep --title="MiyoLinux Control Center" --image=/usr/share/miyolinux/miyolinux.png \
+     --width=730 --height=500 --center --window-icon=/usr/share/miyolinux/miyolinux.png --image-on-top --text='<span font_weight="bold">Customize the look, configuration, and settings of your system.</span>' --button=gtk-ok \
+
+# Cleanup
+rm -f $res1 $res2 $res3 $res4

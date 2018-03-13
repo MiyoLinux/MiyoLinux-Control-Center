@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=MiyoLinux Control Center
+Comment=Customize the look, configuration, and settings of your system
+Exec=/bin/miyo-cc
+Terminal=false
+Type=Application
+Icon=applications-accessories
+Categories=Settings;
