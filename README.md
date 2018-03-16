@@ -17,3 +17,22 @@ Within that "system" folder, I copied and pasted the applications from /usr/shar
 As you look over the code, you will see that each tab points to its own end folder. However, under the Configuration Files tab are buttons that merely link to the configuration files that will open with your designated text editor.
 
 Please note, in the code, the EDITOR is designated as Leafpad, so you may need to change that to your preferred text editor also.
+
+
+<p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
+  <a rel="license"
+     href="http://creativecommons.org/publicdomain/zero/1.0/">
+    <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" />
+  </a>
+  <br />
+  To the extent possible under law,
+  <a rel="dct:publisher"
+     href="http://miyolinux.weebly.com/">
+    <span property="dct:title">MiyoLinux</span></a>
+  has waived all copyright and related or neighboring rights to
+  <span property="dct:title">MiyoLinux Accessories</span>.
+This work is published from:
+<span property="vcard:Country" datatype="dct:ISO3166"
+      content="US" about="http://miyolinux.weebly.com/">
+  United States</span>.
+</p>
